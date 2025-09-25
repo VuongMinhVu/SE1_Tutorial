@@ -36,4 +36,12 @@ class StringModifierTest {
         String expected = "JavaCode";
         assertEquals(expected, StringModifier.ModifyString(input));
     }
+    @Test
+    void testModifyString_FirstIsSpace() throws Exception {
+        String input = " Hanu University";
+        Exception exception = assertThrows(Exception.class, () ->{
+            StringModifier.ModifyString(input);
+        });
+        assertEquals("First character is space", exception.getMessage());
+    }
 }

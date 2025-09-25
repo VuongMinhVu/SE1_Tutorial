@@ -30,4 +30,11 @@ class StringModifierParameterizedTest {
         Exception ex = assertThrows(Exception.class, () -> StringModifier.ModifyString(input));
         assertEquals("Input string is empty", ex.getMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {" Hanu", "   leadingSpaces"})
+    void testModifyString_FirstCharIsSpace(String input) {
+        Exception ex = assertThrows(Exception.class, () -> StringModifier.ModifyString(input));
+        assertEquals("First character is space", ex.getMessage());
+    }
 }
